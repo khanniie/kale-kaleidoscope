@@ -2,22 +2,26 @@ var can, pg, triheight, triwidth;
 
 function setup() {
     push();
-    pg = createGraphics(200, 200);
-    triwidth = 100;
+    triwidth = 120;
+    //higher number, thicker strokes, less detail
+    detailamt1 = 1.8;
+    //higher number, more strokes, more detail
+    detailamt2 = 6;
     triheight = (triwidth / 2) * Math.sqrt(3);
+    pg = createGraphics(triwidth*2, triwidth*2);
     can = createCanvas(windowWidth, windowHeight);
-    translate(200, 200);
+    translate(triwidth*2, triwidth*2);
     pg.fill(randomColor(20));
     pg.noStroke();
     pg.triangle(0, 0, triwidth / 2, triheight, triwidth, 0);
     pg.blendMode(LIGHTEST);
 
-    for (var i = 0; i < 12; i++) {
-        pg.strokeWeight(30);
+    for (var i = 0; i < 4* detailamt2; i++) {
+        pg.strokeWeight(10 * detailamt1);
         pg.stroke(randomColor(Math.random() * 255));
         pg.line(Math.random() * triwidth, Math.random() * triheight, Math.random() * triwidth, Math.random() * triheight);
     }
-    for (var i = 0; i < 12; i++) {
+    for (var i = 0; i < 4* detailamt2; i++) {
         var temp = randomColor(Math.random() * 255);
         pg.noStroke();
         pg.fill(temp);
@@ -26,7 +30,7 @@ function setup() {
     pg.drawingContext.globalCompositeOperation = "destination-atop";
     pg.fill(255);
     pg.triangle(0, 0, triwidth / 2, triheight, triwidth, 0);
-    image(pg, -100, -(100) * Math.sqrt(3));
+    image(pg, -triwidth, -triheight*2);
     for (var i = 0; i < 5; i++) {
         var a = 1;
         if (i % 2 == 1) {
@@ -34,7 +38,7 @@ function setup() {
         }
         scale(-1, 1);
         rotate(radians(a * 60));
-        image(pg, -100, -(100) * Math.sqrt(3));
+        image(pg, -triwidth, -triheight*2);
     }
     // scale(-1, 1);
     // rotate(radians(60));
