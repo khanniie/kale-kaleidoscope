@@ -11,7 +11,7 @@ function setup() {
     pg = createGraphics(triwidth * 2, triwidth * 2);
     can = createCanvas(triwidth * 4, triwidth * 4);
     translate(triwidth * 2, triheight * 2);
-    pg.fill(randomColor(20));
+    pg.fill(randomColor(50));
     pg.noStroke();
     pg.triangle(0, 0, triwidth / 2, triheight, triwidth, 0);
     pg.blendMode(LIGHTEST);
@@ -70,9 +70,6 @@ function setup() {
     console.log(screenwidth + "  " + screenwidth);
 }
 
-// var temp = document.getElementbyId("mycanvas");
-//     var ctx = temp.getContext("2d");
-//     ctx.getImageData(0, 0, triwidth * 2, triwidth * 2);  
 
 function randomColor(opacity) {
     var colorar = [];
