@@ -1,38 +1,85 @@
 <!doctype html>
 <html class="no-js" lang="">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        
-        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-        <link rel="apple-touch-icon" href="apple-touch-icon.png">
-        <style>
-            #dest{
-                position: absolute;
-            }
-            body{
-                margin: 0;
-                overflow: hidden;
-            }
-        </style>
 
-        <script
-  src="https://code.jquery.com/jquery-3.1.1.slim.min.js"
-  integrity="sha256-/SIrNqv8h6QGKDuNoLGA4iret+kyesCkHGzVUUV0shc="
-  crossorigin="anonymous"></script>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link href="https://fonts.googleapis.com/css?family=Calligraffitti" rel="stylesheet">
+    <style>
+    #dest {
+        position: absolute;
+    }
+    
+    body {
+        margin: 0;
+        overflow: hidden;
+        /*//font-family: "arial", "sans-serif";*/
+        color: rgb(255, 255, 255);
+    }
+    
+    button {
+        position: fixed;
+        top: 10px;
+        background-color: rgba(0, 0, 0, 0.8);
+        border: 0px;
+        height: 3.5em;
+        width: 12em;
+        box-shadow: 8px 8px 2px rgba(0, 0, 0, 0.2);
+        color: rgb(255, 255, 255);
+    }
+    
+    #autoloop {
+        left: 1em;
+    }
+     #manualloop {
+        left: 1em;
+        display: none;
+    }
+    
+    #new {
+        left: 15em;
+    }
+    
+    #intro {
+        position: fixed;
+        opacity: 1;
+        top: 40%;
+        left: 20%;
+        font-size: 250%;
+        /*font-weight: 1;*/
+        background-color: rgba(0, 0, 0, 0.8);
+        font-family: 'Calligraffitti', cursive;
+        transition-duration: 6s;
+    }
+    #speed{
+        position: fixed;
+        top: 1.5em;
+        left: 15em;
+        display: none;
+    }
+    
+    </style>
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha256-/SIrNqv8h6QGKDuNoLGA4iret+kyesCkHGzVUUV0shc=" crossorigin="anonymous"></script>
+    <script src="libraries/p5.js"></script>
+    <script src="libraries/p5.dom.js"></script>
+    <script src="kale.js"></script>
 
-        <script src="libraries/p5.js"></script>
-        <script src="libraries/p5.dom.js"></script>
-        <script src="kale.js"></script>
-        <script src="kale2.js"></script>
+</head>
 
-    </head>
-    <body>
-       <canvas id="dest" width= "2000" height="2000"></canvas>
+<body>
+    <canvas id="dest" width="2000" height="2000"></canvas>
+    <div id="intro">Move cursor around for kaleidoscope effect.</div>
+    <button id="autoloop">Automatic</button>
+    <button id="manualloop">Manual</button>
+    <input type="range" id="speed">
+<!--     <button id="new">New Kaleidoscope</button> -->
 
-        
-    </body>
+</body>
+
+
 </html>
