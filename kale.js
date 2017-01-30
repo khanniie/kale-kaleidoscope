@@ -3,8 +3,12 @@ var mousex, mousey, screenwidth, screenheight, currentcap, backgroundcolor;
 var can, pg, triheight, triwidth;
 var pieces = [];
 var fr = 30;
+var slider;
 
 function setup() {
+     slider = createSlider(8, 60, 30);
+     slider.position(225, 18);
+     slider.style('width', '80px');
     frameRate(fr);
     triwidth = 120;
     //higher number, thicker strokes, less detail
@@ -67,6 +71,7 @@ function setup() {
 
     can.id("mycanvas");
     pg.id("pg");
+    slider.id("slider");
 
     screenheight = windowHeight;
     screenwidth = windowWidth;
@@ -76,27 +81,34 @@ function setup() {
 
 $(function() {
     drawoutside();
-    $("#intro").css("opacity", "0");
+    
     $("#autoloop").click(function(){
         interactMode = false;
         $(this).css("display", "none");
         $("#manualloop").css("display", "block");
-        // $("#speed").css("display", "block");
+        $("#slider").css("display", "block");
+        $("#sliderbox").css("display", "block");
     })
     $("#manualloop").click(function(){
         interactMode = true;
         $(this).css("display", "none");
         $("#autoloop").css("display", "block");
-        // $("#speed").css("display", "none");
+        $("#slider").css("display", "none");
+        $("#sliderbox").css("display", "none");
+
     })
     // $("#new").click(function(){
     //     location.reload();
     // })
 
-    // document.getElementById("speed").addEventListener("change", function(){
+    // document.getElementById("slider").addEventListener("change", function(){
     //     console.log("change");
-    //          fr = document.getElementById("speed").value;     
+    //          fr = document.getElementById("slider").value;     
     //     });
+
+    $( "body" ).mousemove(function( event ) {
+        $("#intro").css("opacity", "0");
+    });
             
 });
 
@@ -135,7 +147,8 @@ function drawoutside() {
 }
 
 function draw() {
-    //frameRate(fr);
+    var val = slider.value();
+    frameRate(val);
    // console.log(fr + "  " + frameRate());
     pg = createGraphics(triwidth * 2, triwidth * 2);
     can = createCanvas(triwidth * 4, triwidth * 4);
@@ -174,6 +187,7 @@ function draw() {
 }
 
 function interact() {
+    frameRate(30);
     var difx = (mousex - mouseX) / 10 * -1;
     var dify = (mousey - mouseY) / 10 * -1;
 
