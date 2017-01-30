@@ -18,7 +18,7 @@
     body {
         margin: 0;
         overflow: hidden;
-        /*//font-family: "arial", "sans-serif";*/
+        font-family: "arial", "sans-serif";
         color: rgb(255, 255, 255);
     }
     
@@ -54,12 +54,23 @@
         /*font-weight: 1;*/
         background-color: rgba(0, 0, 0, 0.8);
         font-family: 'Calligraffitti', cursive;
-        transition-duration: 6s;
+        transition-duration: 6.5s;
     }
-    #speed{
+    #sliderbox{
+        font-size: 0.7em;
+        padding: 1em;
         position: fixed;
-        top: 1.5em;
         left: 15em;
+        top: 10px;
+        background-color: rgba(0, 0, 0, 0.8);
+        border: 0px;
+        height: 1.5em;
+        width: 12em;
+        box-shadow: 8px 8px 2px rgba(0, 0, 0, 0.2);
+        color: rgb(255, 255, 255);
+        display: none;
+    }
+    #slider{
         display: none;
     }
     
@@ -76,7 +87,7 @@
     <div id="intro">Move cursor around for kaleidoscope effect.</div>
     <button id="autoloop">Automatic</button>
     <button id="manualloop">Manual</button>
-    <input type="range" id="speed">
+    <div id ="sliderbox"> Speed </div>
 <!--     <button id="new">New Kaleidoscope</button> -->
 
 </body>
