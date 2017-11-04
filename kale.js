@@ -5,6 +5,30 @@ var pieces = [];
 var fr = 30;
 var slider;
 
+function preload(){
+
+    $("#autoloop").click(function(){
+        interactMode = false;
+        $(this).css("display", "none");
+        $("#manualloop").css("display", "block");
+        $("#slider").css("display", "block");
+        $("#sliderbox").css("display", "block");
+    })
+    $("#manualloop").click(function(){
+        interactMode = true;
+        $(this).css("display", "none");
+        $("#autoloop").css("display", "block");
+        $("#slider").css("display", "none");
+        $("#sliderbox").css("display", "none");
+
+    })
+
+    $( "body" ).mousemove(function( event ) {
+        $("#intro").css("opacity", "0");
+    });
+       
+}
+
 function setup() {
      slider = createSlider(8, 60, 30);
      slider.position(225, 18);
@@ -77,40 +101,13 @@ function setup() {
     screenwidth = windowWidth;
     mousey = mouseY;
     mousex = mouseX;
+        drawoutside();
+    
 }
 
-$(function() {
-    drawoutside();
-    
-    $("#autoloop").click(function(){
-        interactMode = false;
-        $(this).css("display", "none");
-        $("#manualloop").css("display", "block");
-        $("#slider").css("display", "block");
-        $("#sliderbox").css("display", "block");
-    })
-    $("#manualloop").click(function(){
-        interactMode = true;
-        $(this).css("display", "none");
-        $("#autoloop").css("display", "block");
-        $("#slider").css("display", "none");
-        $("#sliderbox").css("display", "none");
-
-    })
-    // $("#new").click(function(){
-    //     location.reload();
-    // })
-
-    // document.getElementById("slider").addEventListener("change", function(){
-    //     console.log("change");
-    //          fr = document.getElementById("slider").value;     
-    //     });
-
-    $( "body" ).mousemove(function( event ) {
-        $("#intro").css("opacity", "0");
-    });
-            
-});
+// $(function() {
+     
+// });
 
 
 
