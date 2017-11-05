@@ -1,5 +1,5 @@
 var interactMode = true;
-var mousex, mousey, screenwidth, screenheight, currentcap, backgroundcolor;
+var mousex, mousey, currentcap, backgroundcolor;
 var can, pg, triheight, triwidth;
 var pieces = [];
 var fr = 30;
