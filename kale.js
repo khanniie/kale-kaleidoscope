@@ -34,7 +34,7 @@ function setup() {
      slider.position(225, 18);
      slider.style('width', '80px');
     frameRate(fr);
-    triwidth = 120;
+    triwidth = 100;
     //higher number, thicker strokes, less detail
     detailamt1 = 1.8;
     //higher number, more strokes, more detail
@@ -109,6 +109,10 @@ function drawoutside() {
     var ctx = c.getContext("2d");
     var dest = document.getElementById("dest");
     var destCtx = dest.getContext('2d');
+    dest.style.width = windowWidth + "px";
+    dest.style.height = windowHeight + "px";
+    dest.width = 1300;
+    dest.height = 650;
 
     var verttracker = triheight * 4;
     var horztracker = 0;
