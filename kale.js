@@ -1,5 +1,5 @@
 var interactMode = true;
-var mousex, mousey, currentcap, backgroundcolor;
+var mousex, mousey, screenwidth, screenheight, currentcap, backgroundcolor;
 var can, pg, triheight, triwidth;
 var pieces = [];
 var fr = 30;
@@ -34,7 +34,7 @@ function setup() {
      slider.position(225, 18);
      slider.style('width', '80px');
     frameRate(fr);
-    triwidth = 100;
+    triwidth = 120;
     //higher number, thicker strokes, less detail
     detailamt1 = 1.8;
     //higher number, more strokes, more detail
@@ -96,11 +96,19 @@ function setup() {
     can.id("mycanvas");
     pg.id("pg");
     slider.id("slider");
+
+    screenheight = windowHeight;
+    screenwidth = windowWidth;
     mousey = mouseY;
     mousex = mouseX;
         drawoutside();
     
 }
+
+// $(function() {
+     
+// });
+
 
 
 function drawoutside() {
@@ -109,16 +117,12 @@ function drawoutside() {
     var ctx = c.getContext("2d");
     var dest = document.getElementById("dest");
     var destCtx = dest.getContext('2d');
-    dest.style.width = windowWidth + "px";
-    dest.style.height = windowHeight + "px";
-    dest.width = 1300;
-    dest.height = 650;
 
     var verttracker = triheight * 4;
     var horztracker = 0;
     var alt = 0;
-    while (horztracker < 2000) {
-        while (verttracker < 2000) {
+    while (horztracker < screenwidth) {
+        while (verttracker < screenheight) {
             destCtx.drawImage(c, horztracker, verttracker, triwidth * 4, triwidth * 4);
             verttracker += triheight * 4;
         }
@@ -133,7 +137,7 @@ function drawoutside() {
     }
     horztracker = -triwidth * 3;
     verttracker = -triheight * 2;
-    while (verttracker < 2000) {
+    while (verttracker < screenheight) {
         destCtx.drawImage(c, horztracker, verttracker, triwidth * 4, triwidth * 4);
         verttracker += triheight * 4;
     }
@@ -172,8 +176,8 @@ function draw() {
     }
     can.id("mycanvas");
     pg.id("pg");
-    // screenheight = windowHeight;
-    // screenwidth = windowWidth;
+    screenheight = windowHeight;
+    screenwidth = windowWidth;
     mousey = mouseY;
     mousex = mouseX;
     drawoutside();
