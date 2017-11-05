@@ -96,19 +96,11 @@ function setup() {
     can.id("mycanvas");
     pg.id("pg");
     slider.id("slider");
-
-    screenheight = windowHeight;
-    screenwidth = windowWidth;
     mousey = mouseY;
     mousex = mouseX;
         drawoutside();
     
 }
-
-// $(function() {
-     
-// });
-
 
 
 function drawoutside() {
@@ -121,8 +113,8 @@ function drawoutside() {
     var verttracker = triheight * 4;
     var horztracker = 0;
     var alt = 0;
-    while (horztracker < screenwidth) {
-        while (verttracker < screenheight) {
+    while (horztracker < 2000) {
+        while (verttracker < 2000) {
             destCtx.drawImage(c, horztracker, verttracker, triwidth * 4, triwidth * 4);
             verttracker += triheight * 4;
         }
@@ -137,7 +129,7 @@ function drawoutside() {
     }
     horztracker = -triwidth * 3;
     verttracker = -triheight * 2;
-    while (verttracker < screenheight) {
+    while (verttracker < 2000) {
         destCtx.drawImage(c, horztracker, verttracker, triwidth * 4, triwidth * 4);
         verttracker += triheight * 4;
     }
@@ -176,8 +168,8 @@ function draw() {
     }
     can.id("mycanvas");
     pg.id("pg");
-    screenheight = windowHeight;
-    screenwidth = windowWidth;
+    // screenheight = windowHeight;
+    // screenwidth = windowWidth;
     mousey = mouseY;
     mousex = mouseX;
     drawoutside();
